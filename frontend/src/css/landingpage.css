@@ -1,0 +1,294 @@
+
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
+@import url('https://fonts.googleapis.com/css?family=Quicksand|Kalam');
+@import url('https://fonts.googleapis.com/css?family=Cantarell');
+
+h3{
+    font-family: 'Cantarell', sans-serif !important;
+}
+
+.borderMe{
+    border:solid red;
+}
+
+#navbarNav ul li:hover a,#navbarNav .active  a{ 
+    color:#cc005f;
+}
+
+.bg_div{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  background: url("../images/bgimage.jpg") no-repeat center center;
+  background-size: cover;
+   background-attachment: fixed; 
+}
+
+.intro {
+    position: absolute;
+    top: 30vh;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: #fff;
+    font-family: 'Julius Sans One', sans-serif;
+}
+
+.intro .name{
+font-family: 'Kalam', sans-serif !important;
+font-size: 6vw;
+font-weight: bolder;
+}
+
+.intro .tagLine{
+    font-size: 1.6vw;
+}
+
+.intro h5{
+ color: #cc005f;
+ font-weight: bold;
+ font-family: 'Consolas';
+ font-size: 4vh;
+}
+
+.bg{
+background-color: #4f4f4f;
+}
+
+.marginTop{
+margin-top: 5vh;
+}
+
+.paddingAll{
+    padding: 2vh;
+}
+
+.intro button:hover,.inner button:focus{
+border: solid #cc005f;
+background-color: transparent;
+color: white;
+}
+
+/*************************************************************************/
+.profilePic{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%; 
+    background-position: center;
+    background-size: cover;
+    border: 5px solid white;
+    object-fit: cover;
+    object-position: top;
+    }   
+
+#about{
+padding-top: 10%;
+margin-bottom: 10%;
+}
+
+#about h5,.education h5,.contact h5{
+    font-family: 'Julius Sans One';
+    color: #cc005f;
+    font-weight: bold;
+    letter-spacing: 5px
+}
+
+#about h2,.education h2,.contact h2{
+    font-family: 'Julius Sans One';
+}
+
+.aboutdesc p{
+    font-family: 'Cantarell', sans-serif !important;
+    font-size: 20px;
+    text-align: justify;
+}
+
+.marginTop30{
+    margin-top:30px;
+}
+
+.marginTop50{
+    margin-top:50px;
+}
+
+.profile p{
+    font-family: 'Cantarell', sans-serif !important;
+    font-size: 17px;
+}
+
+/********** PROGRESS BAR **************/
+.progress{
+    background-color: #a1a1a1 !important;
+    height: 6px !important;
+    border-radius: 0% !important;
+    margin-bottom: 25px;
+}
+.progress-bar{
+    background-color: #313131 !important;
+    height:200px;
+}
+
+#hireMe{
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+/********** MY BUTTON **************/
+
+.myButton{
+    /* border-0 in bootstrap*/
+    border-radius: 0% !important;
+    border:3px solid #1F1F1F !important;
+    padding:15px 50px 15px 50px !important;
+    min-width:250px;
+    margin:0 25px 0 25px;
+    color: #1F1F1F !important;
+}
+
+.myButton:hover{
+    border:3px solid #cc005f  !important;
+    color: #cc005f !important;
+}
+
+
+.myButtonInverse{
+    border-radius: 0% !important;
+    background-color: #1F1F1F !important;
+    padding:15px 50px 15px 50px !important;
+    min-width:250px;
+    margin:0 25px 0 25px;
+    color: #fff !important;
+}
+
+.myButtonInverse:hover{
+
+}
+
+/********** MY BUTTON END **************/
+
+/********** EDUCATION BEGIN *********/
+.education{
+    background-color: #EBEBEB;
+    padding-top:10%;
+    padding-bottom:10%;
+}
+
+.paddingTop{
+    padding-top:5%;
+}
+
+.paintWhite{
+    color:white;  /* always should be applied on parent div to center child elements*/
+    background-color: #313131;
+    border-radius: 50%;
+    min-width: 3rem;
+    min-height: 3rem;
+    max-width: 3rem;
+    max-height: 3rem;
+    display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+    justify-content: center; /*Horizontal center */
+    align-items: center; /*vertical center, works in flex */
+
+  /* display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 
+  display: -ms-flexbox;  /* TWEENER - IE 10
+  display: -webkit-flex; NEW - Safari 6.1+. iOS 7.1+, BB10 */
+}
+
+.horizontalLine{
+    border-top: 3px solid #BCBCBC !important;
+    width:50px;
+}
+
+.verticalLine{
+    margin-left:50%;
+    margin-top: 10%;
+    min-height: 70px;
+    max-height: 70px;
+    border-left: 0.5px solid #4f4f4f;
+}
+
+/********** EDUCATION END *********/
+
+/********** CONTACT BEGIN *********/
+
+.contact{
+    background-color: #151515;
+    padding-top:10%;
+    padding-bottom:5%;
+    color: #EBEBEB;
+}
+
+.myInputDiv{
+    margin-right:20%;
+    margin-left: 20%;
+}
+
+.myInput{
+    height: 60px !important;
+    border-radius: 0% !important;
+    background-color: #151515 !important;
+    color:white !important;
+    border:0 !important;
+    border-bottom: 1px solid #4f4f4f !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.myInput:hover,.myInput:focus,.myTextArea:hover,.myTextArea:focus{
+    border-radius: 0% !important;
+    background-color: #151515 !important;
+    color:white !important;
+    border:0 !important;
+    border-bottom: 1px solid #cc005f !important;
+    outline-color: transparent !important;
+    outline-style: none !important;
+    -webkit-transition: border-bottom 0.5s;
+}
+
+.myTextArea{
+    border-radius: 0% !important;
+    background-color: #151515 !important;
+    color:white !important;
+    border:0 !important;
+    border-bottom: 1px solid #4f4f4f !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.myPinkButton{
+    min-height: 70px;
+    border-radius: 0% !important;
+    border:3px solid #cc005f !important;
+    background-color: #cc005f !important;
+    color: #EBEBEB !important;
+}
+
+.myPinkButton:hover, .myPinkButton:focus{
+    border:3px solid #cc005f !important;
+    background-color: #1F1F1F !important;
+}
+
+/********** CONTACT END *********/
+
+/********** FOOTER BEGIN *********/
+
+.footer{
+    background-color: #151515;
+    padding-top: 5%;
+    padding-bottom:5%;
+    color: #EBEBEB;
+}
+
+.footer label,.blackBg label{
+    color: #a1a1a1;
+}
+
+.footer h6,.blackBg span{
+    color: #cc005f;
+}
+
+.blackBg{
+    background-color: #151515;
+    color: #EBEBEB;
+    font-size: 15px;
+}

@@ -1,0 +1,1 @@
+export const FRONTEND_IP = "http://localhost:3000";

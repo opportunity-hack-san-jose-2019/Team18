@@ -25,29 +25,28 @@ class LandingPage extends Component {
         if(this.state.roleInStorage=="Student"){
             this.setState({
                 buttons: <div>
-                    <a href="/eventsList"><button type="button"  class="marginTop marginAll paddingAll btn btn-outline-light rounded-0">Events List</button></a>
+                    <a href="/eventList"><button type="button"  class="marginTop marginAll paddingAll btn btn-outline-light rounded-0">Events List</button></a>
                     <a href="/viewSchedule"><button type="button"  class="marginTop marginAll paddingAll btn btn-outline-light rounded-0">View Schedule</button></a>
                 </div>
             })
         }else if(this.state.roleInStorage=="Administrator"){
             this.setState({
                 buttons: <div>
+                            <a href="/eventlist"><button type="button"  class="marginTop marginAll paddingAll btn btn-outline-light rounded-0">Events List</button></a>
                     <a href="/eventCreation"><button type="button"  class="marginTop marginAll paddingAll btn btn-outline-light rounded-0">Create Event</button></a>
                             <a href="/schedule"><button type="button"  class="marginTop marginAll paddingAll btn btn-outline-light rounded-0">Make Schedules</button></a>
-                            <a href="/adminportal"><button type="button"  class="marginTop marginAll paddingAll btn btn-outline-light rounded-0">send Invites</button></a>
                 </div>
             })
         }else if(this.state.roleInStorage=="Volunteer"){
             this.setState({
                 buttons: <div>
-                    <a href="/eventsList"><button type="button"  class="marginTop marginAll paddingAll btn btn-outline-light rounded-0">Events List</button></a>
+                    <a href="/eventList"><button type="button"  class="marginTop marginAll paddingAll btn btn-outline-light rounded-0">Events List</button></a>
                     <a href="/viewSchedule"><button type="button"  class="marginTop marginAll paddingAll btn btn-outline-light rounded-0">View Schedule</button></a>
                 </div>
             })
         }else{
             this.setState({
                 buttons: <div>
-                    
                 </div>
             })
         }

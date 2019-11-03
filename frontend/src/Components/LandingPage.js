@@ -62,7 +62,7 @@ class LandingPage extends Component {
                         </div>
                     </center>
                 </div>
-                {/* <div id="about" className="container">
+              {/* <div id="about" className="container">
                     <center>
                         <div class="col-md-8 col-sm-*">
                             <div class="col-md-8 col-sm-* ml-auto">

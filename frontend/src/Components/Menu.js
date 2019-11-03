@@ -4,6 +4,11 @@ import LandingPage from './LandingPage';
 import Signup from './Signup';
 import Login from './Login';
 import  Navbar from './Navbar';
+import AdminPortal from './AdminPortal';
+import StudentRegistration from './StudentRegistration';
+import VolunteerRegistration from './VolunteerRegistration';
+import EventCreation from './EventCreation';
+import Schedule from './Schedule';
 
 class Menu extends Component {
     render() {
@@ -13,6 +18,11 @@ class Menu extends Component {
                     <Route exact path='/' component={LandingPage}></Route>
                     <Route path='/signup' component={Signup}></Route>
                     <Route path='/login' component={Login}></Route>
+                    <Route path='/adminportal' component={AdminPortal}></Route>
+                    <Route path='/studentRegistration' component={StudentRegistration}></Route>
+                    <Route path='/volunteerRegistration' component={VolunteerRegistration}></Route>
+                    <Route path='/eventCreation' component={EventCreation}></Route>
+                    <Route path='/schedule' component={Schedule}></Route>
                 </Switch>
             </div>
         );

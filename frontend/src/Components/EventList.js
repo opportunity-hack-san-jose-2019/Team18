@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
 import axios from 'axios';
+import { Link,Redirect } from 'react-router-dom';
+
 
 class EventList extends Component {
 
@@ -44,17 +46,18 @@ class EventList extends Component {
                     if(response.data.length > 0){
                         var registrationStatus = []
                         
-                        for(var i = 0; i < this.state.eventslist; i++){
+                        for(var i = 0; i < this.state.eventslist.length; i++){
                             for(var j=0;j < response.data.length;j++){
+                                console.log(this.state.eventslist[i].id,response.data[j].eventid)
                                 if(this.state.eventslist[i].id == response.data[j].eventid && response.data[j].email == localStorage.getItem("email")){
-                                    registrationStatus.push(<button class="btn btn btn-danger">REGISTERED</button>);
+                                    registrationStatus.push(<button disabled class="btn btn btn-success">REGISTERED</button>);
                                     break;
                                 }
                             }
-                            registrationStatus.push(<button class="btn btn btn-danger">REGISTER</button>);
+                            registrationStatus.push(<Link to="/studentRegistration"><button class="btn btn btn-primary">REGISTER</button></Link>);
                         }
                         this.setState({
-                            ...registrationStatus
+                            registrationStatus: registrationStatus
                         })
                         // this.setState({
                         //     eventslist : this.state.eventslist["registrationStatus"] = registrationStatus
@@ -71,6 +74,7 @@ class EventList extends Component {
             })
         }
         if(this.state.role == "Volunteer") {
+            
             axios.post('http://localhost:3001/registeredVolunteersList')
             .then(response => {
                 if (response.status === 200) {
@@ -78,17 +82,17 @@ class EventList extends Component {
                     if(response.data.length > 0){
                         var registrationStatus = []
                         
-                        for(var i = 0; i < this.state.eventslist; i++){
+                        for(var i = 0; i < this.state.eventslist.length; i++){
                             for(var j=0;j < response.data.length;j++){
                                 if(this.state.eventslist[i].id == response.data[j].eventid && response.data[j].email == localStorage.getItem("email")){
-                                    registrationStatus.push(<button class="btn btn btn-danger">REGISTERED</button>);
+                                    registrationStatus.push(<button disabled class="btn btn btn-success">REGISTERED</button>);
                                     break;
                                 }
                             }
-                            registrationStatus.push(<button class="btn btn btn-danger">REGISTER</button>);
+                            registrationStatus.push(<Link to="/volunteerRegistration"><button  class="btn btn btn-primary">REGISTER</button></Link>);
                         }
                         this.setState({
-                            ...registrationStatus
+                            registrationStatus: registrationStatus
                         })
                     }else{
                         alert("No Events Found")

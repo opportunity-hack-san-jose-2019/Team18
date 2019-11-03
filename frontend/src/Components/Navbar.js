@@ -18,6 +18,7 @@ class Navbar extends Component {
             this.setState({
                 redirectVar : <Link to='/'><a class="nav-link" onClick={this.handleClick.bind(this)} href="">LOGOUT</a></Link>
             })
+            
         }else{
             this.setState({
                 redirectVar : <Link to='/login'><a class="nav-link" onClick={this.handleClick.bind(this)} href="">LOGIN</a></Link>

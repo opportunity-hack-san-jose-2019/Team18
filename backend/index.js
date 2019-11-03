@@ -272,8 +272,77 @@ app.post('/registeredStudentsList', function (req, res) {
         }
     })
 });
-
 ///////////////////////////////////////// Student Registration  List ///////////////////////////////////////////////////////////
+
+///////////////////////////////////////// Volunteer Registration ///////////////////////////////////////////////////////////
+app.post('/volunteerregistration', function (req, res) {
+    console.log("Inside Volunteer Registration Request");
+    console.log("Req Body : ", req.body);
+    
+    // console.log(qry)
+    if (req.body && req.body.eventid && req.body.fullname && req.body.interestedfields && req.body.subdomain && req.body.mobilenumber && req.body.email) {
+        var qry = "INSERT INTO volunteerregistration (eventid, fullname, email, mobilenumber, fields, subfields) VALUES ("+mysql.escape(req.body.eventid)+","+mysql.escape(req.body.fullname)+","+mysql.escape(req.body.email)+","+mysql.escape(req.body.mobilenumber)+","+mysql.escape(req.body.interestedfields)+","+mysql.escape(req.body.subdomain)+");";
+        con.query(qry,function(err,result){
+            if (err) {
+                        console.log("here2", err)
+                        res.writeHead(400, {
+                            'Content-Type': 'text/plain'
+                        })
+                        res.end("Invalid Credentials in Volunteer Request");
+                    } else {
+                        console.log("SUCCESSSSSSSSSSSSSSSSSSSSSSS")
+                        res.writeHead(200, {
+                            'Content-Type': 'text/plain'
+                        })
+                        res.end("Volunteer Request Successful");
+                    }
+            
+        });
+        // con.query("INSERT INTO studentregistration (eventid, fullname, interestedfields, subfields, mobilenumber, linkedinurl, shortdescription, goals, email) VALUES(?,?,?,?,?,?,?,?,?)", [req.body.eventid, req.body.fullname, req.body.interestedfields, req.body.subdomain, req.body.mobilenumber, req.body.linkedinurl, req.body.shortdescription, req.body.goals, req.body.email], function (err, result) {
+        //     if (err) {
+        //         console.log("here2", err)
+        //         res.writeHead(400, {
+        //             'Content-Type': 'text/plain'
+        //         })
+        //         res.end("Invalid Credentials");
+        //     } else {
+        //         res.writeHead(200, {
+        //             'Content-Type': 'text/plain'
+        //         })
+        //         res.end("Successful signup");
+        //     }
+        // })
+    } else {
+        console.log("here")
+        res.writeHead(400, {
+            'Content-Type': 'text/plain'
+        })
+        res.end("Invalid Credentials for Volunteer Request");
+    }
+});
+///////////////////////////////////////// Volunteer Registration ///////////////////////////////////////////////////////////
+
+///////////////////////////////////////// VOlunteer Registration List ///////////////////////////////////////////////////////////
+app.post('/registeredVolunteersList', function (req, res) {
+    console.log("Inside registeredVolunteersList Request");
+
+    con.query("SELECT * FROM volunteerregistration", function (err, result) {
+        if (err) {
+            console.log("here2", err)
+            res.writeHead(400, {
+                'Content-Type': 'text/plain'
+            })
+            res.end("Error in registeredVolunteersList");
+        } else {
+            res.writeHead(200, {
+                'Content-Type': 'text/plain'
+            })
+            console.log("registeredVolunteersList success",result)
+            res.end(JSON.stringify(result));
+        }
+    })
+});
+///////////////////////////////////////// VOlunteer Registration  List ///////////////////////////////////////////////////////////
 
 app.listen(ENV_VAR.PORT);
 console.log("Server running on port " + ENV_VAR.PORT);

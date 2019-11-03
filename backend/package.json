@@ -1,0 +1,29 @@
+{
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "",
+      "start": "node index"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "body-parser": "^1.18.3",
+      "cookie-parser": "^1.4.3",
+      "cors": "^2.8.4",
+      "express": "^4.16.3",
+      "express-session": "^1.15.6",
+      "form-data": "^2.3.3",
+      "fs": "0.0.1-security",
+      "mongodb": "^3.1.8",
+      "mongoose": "^5.3.12",
+      "morgan": "^1.9.1",
+      "mysql": "^2.16.0",
+      "nodemon": "^1.18.7",
+      "package.json": "^2.0.1",
+      "request": "^2.88.0",
+      "xmlbuilder": "^10.1.1"
+    }
+  }

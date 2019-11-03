@@ -41,7 +41,8 @@ After executing the `start` command, the project will open in the browser with t
 ```
         http://localhost:3000/
 ```
-`3000` is the default port where a node.js project is executed.
+`3000` is the default port where a node.js project is executed. You'll see the following web page:
+![Home](https://github.com/opportunity-hack-san-jose-2019/Team18/blob/master/images/Home.PNG)
 
 ### References
 - Problem Statement by [Braven](https://bebraven.org/)

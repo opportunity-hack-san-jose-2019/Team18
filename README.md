@@ -1,6 +1,6 @@
 # Team18 - Team Mavericks
 ## Gist
-We built a web application for interviewer - interviewee mapping by using React.js for frontend and Node.js for backend.
+We built a web application for interviewer - interviewee mapping by using React.js, Node.js, MySQL.
 
 ## Inspiration
 As college students, we realize the challenge an interview can present and wanted to help other students prep for the upcoming interviews and first impressions ahead of them.

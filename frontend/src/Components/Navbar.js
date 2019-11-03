@@ -58,7 +58,7 @@ class Navbar extends Component {
                                 <a class="nav-link" href="/">HOME <span class="sr-only">(current)</span></a>
                             </li>
                              <li class="nav-item">
-                                <a class="nav-link" href="#about">{this.state.role}</a>
+                                <a class="" ></a> <p className="nav-link">{this.state.role}</p>
                             </li>
                             {/* <li class="nav-item">
                                 <a class="nav-link" href="#education">PORFOLIO</a>

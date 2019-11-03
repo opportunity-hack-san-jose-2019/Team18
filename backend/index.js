@@ -223,7 +223,7 @@ app.post('/studentregistration', function (req, res) {
                         res.writeHead(200, {
                             'Content-Type': 'text/plain'
                         })
-                        res.end("Successful signup");
+                        res.end("Successful register");
                     }
             
         });
@@ -242,7 +242,7 @@ app.post('/studentregistration', function (req, res) {
         //     }
         // })
     } else {
-        console.log("here")
+        console.log("here dfjgk")
         res.writeHead(400, {
             'Content-Type': 'text/plain'
         })
@@ -250,6 +250,30 @@ app.post('/studentregistration', function (req, res) {
     }
 });
 ///////////////////////////////////////// Student Registration ///////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////// Student Registration List ///////////////////////////////////////////////////////////
+app.post('/registeredStudentsList', function (req, res) {
+    console.log("Inside registeredStudentsList Request");
+
+    con.query("SELECT * FROM studentregistration", function (err, result) {
+        if (err) {
+            console.log("here2", err)
+            res.writeHead(400, {
+                'Content-Type': 'text/plain'
+            })
+            res.end("Error in registeredStudentsList");
+        } else {
+            res.writeHead(200, {
+                'Content-Type': 'text/plain'
+            })
+            console.log("registeredStudentsList success",result)
+            res.end(JSON.stringify(result));
+        }
+    })
+});
+
+///////////////////////////////////////// Student Registration  List ///////////////////////////////////////////////////////////
 
 app.listen(ENV_VAR.PORT);
 console.log("Server running on port " + ENV_VAR.PORT);

@@ -15,14 +15,13 @@ class Login extends Component {
                 email:"",
                 password:"",
                 renderRedirect:false
-            }
+                        }
         }
+
+        
 
         handleClick = (e) => {
             e.preventDefault();
-
-            
-
             console.log(this.state);
             const data = this.state;
     
@@ -33,13 +32,14 @@ class Login extends Component {
                         alert("login successfull !");
                         console.log("login successful, data inserted");
                         localStorage.setItem('email', this.state.email);
+                        localStorage.setItem('role', this.state.role);
                         this.setState({
                             renderRedirect:<Redirect to='/' />
                         })
                     }
                 })
                 .catch((error) => {
-                    alert("Email already exists or something went wrong !!");
+                    alert("something went wrong !!");
                     this.setState({
                         redirectVar:<Redirect to='/' />
                     })

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link,Redirect } from 'react-router-dom';
+import { Link,Redirect,withRouter } from 'react-router-dom';
 import '../css/landingpage.css';
 
 class Navbar extends Component {
@@ -8,10 +8,8 @@ class Navbar extends Component {
         super(props);
         this.state = {
             email : "",
-            redirectVar:""
-            // renderRedirect: <Redirect to="/login"></Redirect>
-
-        }
+            redirectVar:"",
+            role:localStorage.getItem("role")        }
     }
 
     componentDidMount() {
@@ -32,9 +30,12 @@ class Navbar extends Component {
 
         if(localStorage.getItem("email")){ //already logged in.
             localStorage.removeItem("email")
+            localStorage.removeItem("role")
             this.setState({
                 redirectVar : <Link to='/'><a class="nav-link" onClick={this.handleClick.bind(this)} href="">LOGIN</a></Link>
             })
+            window.location.reload();
+            // this.props.history.push("/");
         }else{
             this.setState({
                 // redirectVar : <Link to='/login'><a class="nav-link" onClick={this.handleClick.bind(this)} href="">LOGIN</a></Link>,
@@ -56,10 +57,10 @@ class Navbar extends Component {
                             <li class="nav-item active">
                                 <a class="nav-link" href="/">HOME <span class="sr-only">(current)</span></a>
                             </li>
-                            {/* <li class="nav-item">
-                                <a class="nav-link" href="#about">ABOUT</a>
+                             <li class="nav-item">
+                                <a class="nav-link" href="#about">{this.state.role}</a>
                             </li>
-                            <li class="nav-item">
+                            {/* <li class="nav-item">
                                 <a class="nav-link" href="#education">PORFOLIO</a>
                             </li>
                             <li class="nav-item">

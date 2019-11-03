@@ -14,15 +14,44 @@ class LandingPage extends Component {
         super(props);
         AOS.init(); 
         this.state = {
-            email : localStorage.getItem("email")
+            email : localStorage.getItem("email"),
+            roleInStorage:localStorage.getItem("role"),
+            buttons:<div></div>
         }
     }
 
-    // componentDidMount() {
-    //     if(this.state.email){
-
-    //     }
-    // }
+    componentDidMount = () => {
+        // getting based upon on user role.
+        if(this.state.roleInStorage=="Student"){
+            this.setState({
+                buttons: <div>
+                    <a href="/eventsList"><button type="button"  class="marginTop marginAll paddingAll btn btn-outline-light rounded-0">Events List</button></a>
+                    <a href="/viewSchedule"><button type="button"  class="marginTop marginAll paddingAll btn btn-outline-light rounded-0">View Schedule</button></a>
+                </div>
+            })
+        }else if(this.state.roleInStorage=="Administrator"){
+            this.setState({
+                buttons: <div>
+                    <a href="/eventCreation"><button type="button"  class="marginTop marginAll paddingAll btn btn-outline-light rounded-0">Create Event</button></a>
+                            <a href="/schedule"><button type="button"  class="marginTop marginAll paddingAll btn btn-outline-light rounded-0">Make Schedules</button></a>
+                            <a href="/adminportal"><button type="button"  class="marginTop marginAll paddingAll btn btn-outline-light rounded-0">send Invites</button></a>
+                </div>
+            })
+        }else if(this.state.roleInStorage=="Volunteer"){
+            this.setState({
+                buttons: <div>
+                    <a href="/eventsList"><button type="button"  class="marginTop marginAll paddingAll btn btn-outline-light rounded-0">Events List</button></a>
+                    <a href="/viewSchedule"><button type="button"  class="marginTop marginAll paddingAll btn btn-outline-light rounded-0">View Schedule</button></a>
+                </div>
+            })
+        }else{
+            this.setState({
+                buttons: <div>
+                    
+                </div>
+            })
+        }
+    }
 
     render() {
         return (
@@ -61,7 +90,7 @@ class LandingPage extends Component {
                         <div className="container intro">
                             <h1 class="name marginTop">BRAVEN</h1>
                             <label class="tagLine">Leaders emerging from everywhere empowered to excel anywhere</label><br />
-                            <a href="#about"><button type="button"  class="marginTop paddingAll btn btn-outline-light rounded-0">More about me.</button></a>
+                            {this.state.buttons}
                         </div>
                     </center>
                 </div>

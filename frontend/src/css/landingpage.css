@@ -20,7 +20,8 @@ h3{
   height: 100%;
   width: 100%;
   min-height: 100vh;
-  background: url("../images/bgimage.jpg") no-repeat center center;
+  background: url("../images/pexels.jpeg") no-repeat center center;
+  /* background: #313131; */
   background-size: cover;
    background-attachment: fixed; 
 }
@@ -62,6 +63,10 @@ margin-top: 5vh;
 
 .paddingAll{
     padding: 2vh;
+}
+
+.marginAll{
+    margin:2vh;
 }
 
 .intro button:hover,.inner button:focus{

@@ -11,8 +11,6 @@ class StudentRegistration extends Component {
                         <center>
                             <h5 className=""> STUDENT REGISTRATION </h5>
                             <form className="marginTop">
-                                
-                            
                                 <div className="myInputDiv">
                                     <input className="myInput col-sm-12" type="text" placeholder="Full Name"></input>
                                 </div>

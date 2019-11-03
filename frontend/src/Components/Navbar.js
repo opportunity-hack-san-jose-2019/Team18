@@ -18,6 +18,7 @@ class Navbar extends Component {
             this.setState({
                 redirectVar : <Link to='/'><a class="nav-link" onClick={this.handleClick.bind(this)} href="">LOGOUT</a></Link>
             })
+            
         }else{
             this.setState({
                 redirectVar : <Link to='/login'><a class="nav-link" onClick={this.handleClick.bind(this)} href="">LOGIN</a></Link>
@@ -58,7 +59,7 @@ class Navbar extends Component {
                                 <a class="nav-link" href="/">HOME <span class="sr-only">(current)</span></a>
                             </li>
                              <li class="nav-item">
-                                <a class="nav-link" href="#about">{this.state.role}</a>
+                                <a class="" ></a> <p className="nav-link">{this.state.role}</p>
                             </li>
                             {/* <li class="nav-item">
                                 <a class="nav-link" href="#education">PORFOLIO</a>

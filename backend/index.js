@@ -223,7 +223,7 @@ app.post('/studentregistration', function (req, res) {
                         res.writeHead(200, {
                             'Content-Type': 'text/plain'
                         })
-                        res.end("Successful signup");
+                        res.end("Successful register");
                     }
             
         });
@@ -242,7 +242,7 @@ app.post('/studentregistration', function (req, res) {
         //     }
         // })
     } else {
-        console.log("here")
+        console.log("here dfjgk")
         res.writeHead(400, {
             'Content-Type': 'text/plain'
         })
@@ -250,6 +250,29 @@ app.post('/studentregistration', function (req, res) {
     }
 });
 ///////////////////////////////////////// Student Registration ///////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////// Student Registration List ///////////////////////////////////////////////////////////
+app.post('/registeredStudentsList', function (req, res) {
+    console.log("Inside registeredStudentsList Request");
+
+    con.query("SELECT * FROM studentregistration", function (err, result) {
+        if (err) {
+            console.log("here2", err)
+            res.writeHead(400, {
+                'Content-Type': 'text/plain'
+            })
+            res.end("Error in registeredStudentsList");
+        } else {
+            res.writeHead(200, {
+                'Content-Type': 'text/plain'
+            })
+            console.log("registeredStudentsList success",result)
+            res.end(JSON.stringify(result));
+        }
+    })
+});
+///////////////////////////////////////// Student Registration  List ///////////////////////////////////////////////////////////
 
 ///////////////////////////////////////// Volunteer Registration ///////////////////////////////////////////////////////////
 app.post('/volunteerregistration', function (req, res) {
@@ -296,8 +319,44 @@ app.post('/volunteerregistration', function (req, res) {
         })
         res.end("Invalid Credentials for Volunteer Request");
     }
+}); 
+//////////////////////////////////////// Volunteer Registration ///////////////////////////////////////////////////////////
+
+///////////////////////////////////////// VOlunteer Registration List ///////////////////////////////////////////////////////////
+app.post('/registeredVolunteersList', function (req, res) {
+    console.log("Inside registeredVolunteersList Request");
+
+    con.query("SELECT * FROM volunteerregistration", function (err, result) {
+        if (err) {
+            console.log("here2", err)
+            res.writeHead(400, {
+                'Content-Type': 'text/plain'
+            })
+            res.end("Error in registeredVolunteersList");
+        } else {
+            res.writeHead(200, {
+                'Content-Type': 'text/plain'
+            })
+            console.log("registeredVolunteersList success",result)
+            res.end(JSON.stringify(result));
+        }
+    })
 });
-///////////////////////////////////////// Volunteer Registration ///////////////////////////////////////////////////////////
+///////////////////////////////////////// VOlunteer Registration  List ///////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////// PYTHON CODE //////////////////////////////////////////////////////////
+app.get('/python', (req, res) => {
+    console.log("Running ML algo")
+    const { spawn } = require('child_process');
+    const pyProg = spawn('python', ['./recommendations.py']);
+    pyProg.stdout.on('data', function(data) {
+        console.log(data.toString());
+        res.write(data);
+        res.end('end');
+    });
+});
+///////////////////////////////////////////// PYTHON CODE //////////////////////////////////////////////////////////
 
 let {PythonShell} = require('python-shell')
  

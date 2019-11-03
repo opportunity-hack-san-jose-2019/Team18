@@ -299,5 +299,41 @@ app.post('/volunteerregistration', function (req, res) {
 });
 ///////////////////////////////////////// Volunteer Registration ///////////////////////////////////////////////////////////
 
+let {PythonShell} = require('python-shell')
+ 
+
+
+app.get('/python', (req, res) => {
+
+    var options = {
+        mode: 'text',
+        pythonPath: 'C:/Users/navee/AppData/Local/Programs/Python/Python37',
+        pythonOptions: ['-u'], // get print results in real-time
+        scriptPath: 'C:/Users/navee/AppData/Local/Programs/Python/Python37/Scripts',
+        args:
+        [
+          req.query.funds, // starting funds
+          req.query.size, // (initial) wager size
+          req.query.count, // wager count - number of wagers per sim
+          req.query.sims // number of simulations
+        ]
+      }
+
+    PythonShell.run('./recommendations.py', options, function (err) {
+        if (err) throw err;
+        console.log('finished');
+      });
+
+    const { spawn } = require('child_process');
+    const pyProg = spawn('python', ['./recommendations.py']);
+
+    pyProg.stdout.on('data', function(data) {
+
+        console.log(data.toString());
+        res.write(data);
+        res.end('end');
+    });
+})
+
 app.listen(ENV_VAR.PORT);
 console.log("Server running on port " + ENV_VAR.PORT);

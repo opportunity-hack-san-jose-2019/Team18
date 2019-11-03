@@ -9,7 +9,7 @@ As college students, we realize the challenge an interview can present and wante
 This web application allows you to sign up, fill up a form with your skill level, language preference, topic preference, referred times, role, and preferred locations. On finding a match (using collaborative filtering), you get an email with contact info of the interviewer, and confirmation of the mock interview or study session. You then get periodic emails to remind you of the interview. 
 
 ### Collaborative filtering
-$$Cos(A.B) =A.B/|A||B|$$  
+Cos(A.B) =A.B/|A||B|   
 A : Student vector   
 B : Interviewer vector  
 The best match between a student and an interviewer is based on the angle between the A and B. Higher the cosine similarity, lesser the angle. 

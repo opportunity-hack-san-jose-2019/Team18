@@ -9,6 +9,7 @@ import StudentRegistration from './StudentRegistration';
 import VolunteerRegistration from './VolunteerRegistration';
 import EventCreation from './EventCreation';
 import Schedule from './Schedule';
+import EventList from './EventList';
 
 class Menu extends Component {
     render() {
@@ -23,6 +24,7 @@ class Menu extends Component {
                     <Route path='/volunteerRegistration' component={VolunteerRegistration}></Route>
                     <Route path='/eventCreation' component={EventCreation}></Route>
                     <Route path='/schedule' component={Schedule}></Route>
+                    <Route path='/eventlist' component={EventList}></Route>
                 </Switch>
             </div>
         );

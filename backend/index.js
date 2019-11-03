@@ -319,8 +319,8 @@ app.post('/volunteerregistration', function (req, res) {
         })
         res.end("Invalid Credentials for Volunteer Request");
     }
-});
-///////////////////////////////////////// Volunteer Registration ///////////////////////////////////////////////////////////
+}); 
+//////////////////////////////////////// Volunteer Registration ///////////////////////////////////////////////////////////
 
 ///////////////////////////////////////// VOlunteer Registration List ///////////////////////////////////////////////////////////
 app.post('/registeredVolunteersList', function (req, res) {
@@ -343,6 +343,20 @@ app.post('/registeredVolunteersList', function (req, res) {
     })
 });
 ///////////////////////////////////////// VOlunteer Registration  List ///////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////// PYTHON CODE //////////////////////////////////////////////////////////
+app.get('/python', (req, res) => {
+    console.log("Running ML algo")
+    const { spawn } = require('child_process');
+    const pyProg = spawn('python', ['./recommendations.py']);
+    pyProg.stdout.on('data', function(data) {
+        console.log(data.toString());
+        res.write(data);
+        res.end('end');
+    });
+});
+///////////////////////////////////////////// PYTHON CODE //////////////////////////////////////////////////////////
 
 app.listen(ENV_VAR.PORT);
 console.log("Server running on port " + ENV_VAR.PORT);

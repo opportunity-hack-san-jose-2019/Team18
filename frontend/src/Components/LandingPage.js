@@ -27,6 +27,7 @@ class LandingPage extends Component {
                 buttons: <div>
                     <a href="/eventList"><button type="button"  class="marginTop marginAll paddingAll btn btn-outline-light rounded-0">Events List</button></a>
                     <a href="/viewSchedule"><button type="button"  class="marginTop marginAll paddingAll btn btn-outline-light rounded-0">View Schedule</button></a>
+                    <a href="/graph"><button type="button"  class="marginTop marginAll paddingAll btn btn-outline-light rounded-0">View Performance</button></a>
                 </div>
             })
         }else if(this.state.roleInStorage=="Administrator"){

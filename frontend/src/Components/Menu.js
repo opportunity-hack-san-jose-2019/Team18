@@ -11,6 +11,7 @@ import EventCreation from './EventCreation';
 import Schedule from './Schedule';
 import EventList from './EventList';
 import ViewSchedule from './ViewSchedule';
+import Graph from './Graph';
 
 class Menu extends Component {
     render() {
@@ -27,6 +28,7 @@ class Menu extends Component {
                     <Route path='/schedule' component={Schedule}></Route>
                     <Route path='/eventlist' component={EventList}></Route>
                     <Route path="/viewSchedule" component={ViewSchedule}></Route>
+                    <Route path="/graph" component={Graph}></Route>
                 </Switch>
             </div>
         );

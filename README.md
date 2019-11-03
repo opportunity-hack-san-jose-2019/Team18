@@ -24,7 +24,11 @@ The best match between a student and an interviewer is based on the angle betwee
 ```
     npm install
 ```
-
+Have the libraries installed
+- Run the command:
+```
+    pip install -r requirements.txt
+```
 ## Running 
 After running the install command, start the project using the command:
 ```

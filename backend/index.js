@@ -178,5 +178,78 @@ app.post('/eventlist', function (req, res) {
 });
 ///////////////////////////////////////// Event List ///////////////////////////////////////////////////////////
 
+
+///////////////////////////////////////// Fields and Subfields ///////////////////////////////////////////////////////////
+app.post('/fieldsandsubfields', function (req, res) {
+    console.log("Inside Event List Request");
+
+    con.query("SELECT * FROM fieldsubfield", function (err, result) {
+        if (err) {
+            console.log("here2", err)
+            res.writeHead(400, {
+                'Content-Type': 'text/plain'
+            })
+            res.end("Error in getting Events List");
+        } else {
+            res.writeHead(200, {
+                'Content-Type': 'text/plain'
+            })
+            console.log("fields and subfields",result)
+            res.end(JSON.stringify(result));
+        }
+    })
+
+});
+///////////////////////////////////////// Fields and Subfields ///////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////// Student Registration ///////////////////////////////////////////////////////////
+app.post('/studentregistration', function (req, res) {
+    console.log("Inside Student Registration Request");
+    console.log("Req Body : ", req.body);
+    
+    // console.log(qry)
+    if (req.body && req.body.eventid && req.body.fullname && req.body.interestedfields && req.body.subdomain && req.body.mobilenumber) {
+        var qry = "INSERT INTO studentregistration (eventid, fullname, interestedfields, subfields, mobilenumber, linkedinurl, shortdescription, goals, email) VALUES ("+mysql.escape(req.body.eventid)+","+mysql.escape(req.body.fullname)+","+mysql.escape(req.body.interestedfields)+","+mysql.escape(req.body.subdomain)+","+mysql.escape(req.body.mobilenumber)+","+mysql.escape(req.body.linkedinurl)+","+mysql.escape(req.body.shortdescription)+","+mysql.escape(req.body.goals)+","+mysql.escape(req.body.email)+");";
+        con.query(qry,function(err,result){
+            if (err) {
+                        console.log("here2", err)
+                        res.writeHead(400, {
+                            'Content-Type': 'text/plain'
+                        })
+                        res.end("Invalid Credentials");
+                    } else {
+                        console.log("SUCCESSSSSSSSSSSSSSSSSSSSSSS")
+                        res.writeHead(200, {
+                            'Content-Type': 'text/plain'
+                        })
+                        res.end("Successful signup");
+                    }
+            
+        });
+        // con.query("INSERT INTO studentregistration (eventid, fullname, interestedfields, subfields, mobilenumber, linkedinurl, shortdescription, goals, email) VALUES(?,?,?,?,?,?,?,?,?)", [req.body.eventid, req.body.fullname, req.body.interestedfields, req.body.subdomain, req.body.mobilenumber, req.body.linkedinurl, req.body.shortdescription, req.body.goals, req.body.email], function (err, result) {
+        //     if (err) {
+        //         console.log("here2", err)
+        //         res.writeHead(400, {
+        //             'Content-Type': 'text/plain'
+        //         })
+        //         res.end("Invalid Credentials");
+        //     } else {
+        //         res.writeHead(200, {
+        //             'Content-Type': 'text/plain'
+        //         })
+        //         res.end("Successful signup");
+        //     }
+        // })
+    } else {
+        console.log("here")
+        res.writeHead(400, {
+            'Content-Type': 'text/plain'
+        })
+        res.end("Invalid Credentials");
+    }
+});
+///////////////////////////////////////// Student Registration ///////////////////////////////////////////////////////////
+
 app.listen(ENV_VAR.PORT);
 console.log("Server running on port " + ENV_VAR.PORT);

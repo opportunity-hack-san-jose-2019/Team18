@@ -194,7 +194,7 @@ app.post('/fieldsandsubfields', function (req, res) {
             res.writeHead(200, {
                 'Content-Type': 'text/plain'
             })
-            console.log("fields and subfields",result)
+            console.log("fields and subfields", result)
             res.end(JSON.stringify(result));
         }
     })
@@ -207,25 +207,25 @@ app.post('/fieldsandsubfields', function (req, res) {
 app.post('/studentregistration', function (req, res) {
     console.log("Inside Student Registration Request");
     console.log("Req Body : ", req.body);
-    
+
     // console.log(qry)
     if (req.body && req.body.eventid && req.body.fullname && req.body.interestedfields && req.body.subdomain && req.body.mobilenumber) {
-        var qry = "INSERT INTO studentregistration (eventid, fullname, interestedfields, subfields, mobilenumber, linkedinurl, shortdescription, goals, email) VALUES ("+mysql.escape(req.body.eventid)+","+mysql.escape(req.body.fullname)+","+mysql.escape(req.body.interestedfields)+","+mysql.escape(req.body.subdomain)+","+mysql.escape(req.body.mobilenumber)+","+mysql.escape(req.body.linkedinurl)+","+mysql.escape(req.body.shortdescription)+","+mysql.escape(req.body.goals)+","+mysql.escape(req.body.email)+");";
-        con.query(qry,function(err,result){
+        var qry = "INSERT INTO studentregistration (eventid, fullname, interestedfields, subfields, mobilenumber, linkedinurl, shortdescription, goals, email) VALUES (" + mysql.escape(req.body.eventid) + "," + mysql.escape(req.body.fullname) + "," + mysql.escape(req.body.interestedfields) + "," + mysql.escape(req.body.subdomain) + "," + mysql.escape(req.body.mobilenumber) + "," + mysql.escape(req.body.linkedinurl) + "," + mysql.escape(req.body.shortdescription) + "," + mysql.escape(req.body.goals) + "," + mysql.escape(req.body.email) + ");";
+        con.query(qry, function (err, result) {
             if (err) {
-                        console.log("here2", err)
-                        res.writeHead(400, {
-                            'Content-Type': 'text/plain'
-                        })
-                        res.end("Invalid Credentials");
-                    } else {
-                        console.log("SUCCESSSSSSSSSSSSSSSSSSSSSSS")
-                        res.writeHead(200, {
-                            'Content-Type': 'text/plain'
-                        })
-                        res.end("Successful register");
-                    }
-            
+                console.log("here2", err)
+                res.writeHead(400, {
+                    'Content-Type': 'text/plain'
+                })
+                res.end("Invalid Credentials");
+            } else {
+                console.log("SUCCESSSSSSSSSSSSSSSSSSSSSSS")
+                res.writeHead(200, {
+                    'Content-Type': 'text/plain'
+                })
+                res.end("Successful register");
+            }
+
         });
         // con.query("INSERT INTO studentregistration (eventid, fullname, interestedfields, subfields, mobilenumber, linkedinurl, shortdescription, goals, email) VALUES(?,?,?,?,?,?,?,?,?)", [req.body.eventid, req.body.fullname, req.body.interestedfields, req.body.subdomain, req.body.mobilenumber, req.body.linkedinurl, req.body.shortdescription, req.body.goals, req.body.email], function (err, result) {
         //     if (err) {
@@ -267,7 +267,7 @@ app.post('/registeredStudentsList', function (req, res) {
             res.writeHead(200, {
                 'Content-Type': 'text/plain'
             })
-            console.log("registeredStudentsList success",result)
+            console.log("registeredStudentsList success", result)
             res.end(JSON.stringify(result));
         }
     })
@@ -278,25 +278,25 @@ app.post('/registeredStudentsList', function (req, res) {
 app.post('/volunteerregistration', function (req, res) {
     console.log("Inside Volunteer Registration Request");
     console.log("Req Body : ", req.body);
-    
+
     // console.log(qry)
     if (req.body && req.body.eventid && req.body.fullname && req.body.interestedfields && req.body.subdomain && req.body.mobilenumber && req.body.email) {
-        var qry = "INSERT INTO volunteerregistration (eventid, fullname, email, mobilenumber, fields, subfields) VALUES ("+mysql.escape(req.body.eventid)+","+mysql.escape(req.body.fullname)+","+mysql.escape(req.body.email)+","+mysql.escape(req.body.mobilenumber)+","+mysql.escape(req.body.interestedfields)+","+mysql.escape(req.body.subdomain)+");";
-        con.query(qry,function(err,result){
+        var qry = "INSERT INTO volunteerregistration (eventid, fullname, email, mobilenumber, fields, subfields) VALUES (" + mysql.escape(req.body.eventid) + "," + mysql.escape(req.body.fullname) + "," + mysql.escape(req.body.email) + "," + mysql.escape(req.body.mobilenumber) + "," + mysql.escape(req.body.interestedfields) + "," + mysql.escape(req.body.subdomain) + ");";
+        con.query(qry, function (err, result) {
             if (err) {
-                        console.log("here2", err)
-                        res.writeHead(400, {
-                            'Content-Type': 'text/plain'
-                        })
-                        res.end("Invalid Credentials in Volunteer Request");
-                    } else {
-                        console.log("SUCCESSSSSSSSSSSSSSSSSSSSSSS")
-                        res.writeHead(200, {
-                            'Content-Type': 'text/plain'
-                        })
-                        res.end("Volunteer Request Successful");
-                    }
-            
+                console.log("here2", err)
+                res.writeHead(400, {
+                    'Content-Type': 'text/plain'
+                })
+                res.end("Invalid Credentials in Volunteer Request");
+            } else {
+                console.log("SUCCESSSSSSSSSSSSSSSSSSSSSSS")
+                res.writeHead(200, {
+                    'Content-Type': 'text/plain'
+                })
+                res.end("Volunteer Request Successful");
+            }
+
         });
         // con.query("INSERT INTO studentregistration (eventid, fullname, interestedfields, subfields, mobilenumber, linkedinurl, shortdescription, goals, email) VALUES(?,?,?,?,?,?,?,?,?)", [req.body.eventid, req.body.fullname, req.body.interestedfields, req.body.subdomain, req.body.mobilenumber, req.body.linkedinurl, req.body.shortdescription, req.body.goals, req.body.email], function (err, result) {
         //     if (err) {
@@ -319,7 +319,7 @@ app.post('/volunteerregistration', function (req, res) {
         })
         res.end("Invalid Credentials for Volunteer Request");
     }
-}); 
+});
 //////////////////////////////////////// Volunteer Registration ///////////////////////////////////////////////////////////
 
 ///////////////////////////////////////// VOlunteer Registration List ///////////////////////////////////////////////////////////
@@ -337,7 +337,7 @@ app.post('/registeredVolunteersList', function (req, res) {
             res.writeHead(200, {
                 'Content-Type': 'text/plain'
             })
-            console.log("registeredVolunteersList success",result)
+            console.log("registeredVolunteersList success", result)
             res.end(JSON.stringify(result));
         }
     })
@@ -345,12 +345,78 @@ app.post('/registeredVolunteersList', function (req, res) {
 ///////////////////////////////////////// VOlunteer Registration  List ///////////////////////////////////////////////////////////
 
 
+///////////////////////////////////////// View Schedule ///////////////////////////////////////////////////////////
+app.post('/viewschedule', function (req, res) {
+    console.log("Inside View Schedule Request");
+
+    con.query("SELECT * FROM schedules", function (err, result) {
+        if (err) {
+            console.log("here2", err)
+            res.writeHead(400, {
+                'Content-Type': 'text/plain'
+            })
+            res.end("Error in registeredVolunteersList");
+        } else {
+            res.writeHead(200, {
+                'Content-Type': 'text/plain'
+            })
+            console.log("View Schedule Success", result)
+            res.end(JSON.stringify(result));
+        }
+    })
+});
+///////////////////////////////////////// View Schedule ///////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////// Send Alerts ///////////////////////////////////////////////////////////
+app.post('/sendalerts', function (req, res) {
+    console.log("Inside Sending Alerts");
+    const msg = {
+        to: 'naveen.ravipati@sjsu.edu',
+        from: 'chaitanyakrishna755@gmail.com',
+        subject: 'Mock Interview Confirmation from Braven',
+        text: 'Response email for ${name}. Your slot for mock interview is: ${time}',
+        html: 'Hello there! <br> Thanks for scheduling your mock interview with Braven. Interviewer Name: Marco Nevarez, Slot: 1, START TIME: 10:00:00',
+    };
+    const sgMail = require('@sendgrid/mail');
+    SENDGRID_API_KEY = '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'
+    sgMail.setApiKey(SENDGRID_API_KEY);
+
+    sgMail.send(msg);
+    res.writeHead(200, {
+        'Content-Type': 'text/plain'
+    })
+    console.log("Send Alert Success")
+    res.end('Success');
+
+
+    
+
+    // con.query("SELECT * FROM schedules", function (err, result) {
+    //     if (err) {
+    //         console.log("here2", err)
+    //         res.writeHead(400, {
+    //             'Content-Type': 'text/plain'
+    //         })
+    //         res.end("Error in Sending Alerts");
+    //     } else {
+    //         res.writeHead(200, {
+    //             'Content-Type': 'text/plain'
+    //         })
+    //         console.log("Send Alerts Successfull")
+    //         res.end('Send Alerts Successfull');
+    //     }
+    // })
+});
+///////////////////////////////////////// Send Alerts ///////////////////////////////////////////////////////////
+
+
 ///////////////////////////////////////////// PYTHON CODE //////////////////////////////////////////////////////////
 app.get('/python', (req, res) => {
     console.log("Running ML algo")
     const { spawn } = require('child_process');
     const pyProg = spawn('python', ['./recommendations.py']);
-    pyProg.stdout.on('data', function(data) {
+    pyProg.stdout.on('data', function (data) {
         console.log(data.toString());
         res.write(data);
         res.end('end');
@@ -358,8 +424,8 @@ app.get('/python', (req, res) => {
 });
 ///////////////////////////////////////////// PYTHON CODE //////////////////////////////////////////////////////////
 
-let {PythonShell} = require('python-shell')
- 
+let { PythonShell } = require('python-shell')
+
 
 
 app.get('/python', (req, res) => {
@@ -370,23 +436,23 @@ app.get('/python', (req, res) => {
         pythonOptions: ['-u'], // get print results in real-time
         scriptPath: 'C:/Users/navee/AppData/Local/Programs/Python/Python37/Scripts',
         args:
-        [
-          req.query.funds, // starting funds
-          req.query.size, // (initial) wager size
-          req.query.count, // wager count - number of wagers per sim
-          req.query.sims // number of simulations
-        ]
-      }
+            [
+                req.query.funds, // starting funds
+                req.query.size, // (initial) wager size
+                req.query.count, // wager count - number of wagers per sim
+                req.query.sims // number of simulations
+            ]
+    }
 
     PythonShell.run('./recommendations.py', options, function (err) {
         if (err) throw err;
         console.log('finished');
-      });
+    });
 
     const { spawn } = require('child_process');
     const pyProg = spawn('python', ['./recommendations.py']);
 
-    pyProg.stdout.on('data', function(data) {
+    pyProg.stdout.on('data', function (data) {
 
         console.log(data.toString());
         res.write(data);

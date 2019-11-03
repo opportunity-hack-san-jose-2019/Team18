@@ -58,7 +58,7 @@ class StudentRegistration extends Component {
         var subdomains = temp.join(",") + ","
         alert(subdomains)
         data['subdomain'] = subdomains
-        if (localStorage.getItem('email') && this.state.fullname && this.state.interestedfields && this.state.subfields && this.state.mobilenumber && this.state.linkedinurl && this.state.shortdescription && this.state.goals){
+        if (this.state.eventid && localStorage.getItem('email') && this.state.fullname && this.state.interestedfields && this.state.subfields && this.state.mobilenumber && this.state.linkedinurl && this.state.shortdescription && this.state.goals){
             axios.post('http://localhost:3001/studentregistration', data)
             .then(response => {
                 if (response.status === 200) {

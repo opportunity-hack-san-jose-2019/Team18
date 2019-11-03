@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import VAR from '../Config/Config';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import '../css/landingpage.css';
 import Navbar from './Navbar';
 
@@ -14,11 +14,14 @@ class LandingPage extends Component {
         super(props);
         AOS.init(); 
         this.state = {
+            email : localStorage.getItem("email")
         }
     }
 
     // componentDidMount() {
+    //     if(this.state.email){
 
+    //     }
     // }
 
     render() {

@@ -6,6 +6,7 @@ class VolunteerRegistration extends Component {
         return (
             <div>
                 <Navbar></Navbar>
+                
             </div>
         );
     }

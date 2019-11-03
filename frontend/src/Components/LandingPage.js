@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import VAR from '../Config/Config';
 import { Link } from 'react-router-dom';
 import '../css/landingpage.css';
+import Navbar from './Navbar';
 
 
 //ANIMATIONS
@@ -23,7 +24,8 @@ class LandingPage extends Component {
     render() {
         return (
             <div className="">
-                <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style={{ backgroundColor: '#212121' }}>
+                <Navbar/>
+                {/* <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style={{ backgroundColor: '#212121' }}>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -42,14 +44,14 @@ class LandingPage extends Component {
                                 <a class="nav-link" href="#contact">CONTACT</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#contact">LOGIN</a>
+                            <Link to='/login'><a class="nav-link" href="#contact">LOGIN</a></Link>
                             </li>
                             <li class="nav-item">
                                 <Link to='/signup'><a class="nav-link" href="#contact">SIGNUP</a></Link>
                             </li>
                         </ul>
                     </div>
-                </nav>
+                </nav> */}
                 {/* take parent div, put the elements that has to overlap i.e image and text here. apply relative on parent. */}
                 <div id="home" class="bg_div">
                     <center>
@@ -60,7 +62,7 @@ class LandingPage extends Component {
                         </div>
                     </center>
                 </div>
-                <div id="about" className="container">
+                {/* <div id="about" className="container">
                     <center>
                         <div class="col-md-8 col-sm-*">
                             <div class="col-md-8 col-sm-* ml-auto">
@@ -294,7 +296,7 @@ class LandingPage extends Component {
                             <label> developed by Ranjith Cheguri</label>
                         </div>
                     </center>
-                </div>
+                </div> */}
             </div>
         );
     }

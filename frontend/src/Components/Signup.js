@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
+import Navbar from './Navbar';
 
 class Signup extends Component {
     render() {
         return (
             <div>
+                <Navbar/>
                 <div className="contact" id="contact">
                     <div className="container">
                         <center>
                             <h5 className="">SIGN UP HERE</h5>
                             {/* <h3>Please select your role</h3> */}
                             <form className="marginTop">
+                                <div className="myInputDiv">
+                                <select class=" myInput col-sm-12">
+                                    <option selected>Role</option>
+                                        <option className="myInput col-sm-12" value="Student">Student</option>
+                                        <option className="myInput col-sm-12" value="Volunteer">Volunteer</option>
+                                        <option className="myInput col-sm-12" value="Administrator">Administrator</option>
+                                    </select>
+                                </div>
+                            
                                 <div className="myInputDiv">
                                     <input className="myInput col-sm-12" type="text" placeholder="Full Name"></input>
                                 </div>
